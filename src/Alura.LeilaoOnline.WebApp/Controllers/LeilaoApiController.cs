@@ -9,12 +9,10 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     [Route("/api/leiloes")]
     public class LeilaoApiController : ControllerBase
     {
-        AppDbContext _context;
 		LeilaoDao _dao;
 
 		public LeilaoApiController()
         {
-            _context = new AppDbContext();
 			_dao = new LeilaoDao();
 		}
 
