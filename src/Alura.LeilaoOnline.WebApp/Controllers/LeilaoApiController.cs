@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Alura.LeilaoOnline.WebApp.Models;
 using Alura.LeilaoOnline.WebApp.Dados;
+using Alura.LeilaoOnline.WebApp.Models;
 
 namespace Alura.LeilaoOnline.WebApp.Controllers
 {
@@ -9,24 +8,26 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     [Route("/api/leiloes")]
     public class LeilaoApiController : ControllerBase
     {
-		LeilaoDao _dao;
+		ICategoriaDao _daoCategoria;
+		ILeilaoDao _daoLeilao;
 
-		public LeilaoApiController()
+		public LeilaoApiController(ICategoriaDao daoCategoria, ILeilaoDao daoLeilao)
         {
-			_dao = new LeilaoDao();
+			_daoCategoria = daoCategoria;
+            _daoLeilao = daoLeilao;
 		}
 
         [HttpGet]
         public IActionResult EndpointGetLeiloes()
         {
-            var leiloes = _dao.BuscarLeiloes();
+            var leiloes = _daoLeilao.BuscarLeiloes();
             return Ok(leiloes);
         }
 
         [HttpGet("{id}")]
         public IActionResult EndpointGetLeilaoById(int id)
         {
-            var leilao = _dao.BuscarPorId(id);
+            var leilao = _daoLeilao.BuscarPorId(id);
             if (leilao == null)
             {
                 return NotFound();
@@ -37,26 +38,26 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         [HttpPost]
         public IActionResult EndpointPostLeilao(Leilao leilao)
         {
-			_dao.Add(leilao);
+			_daoLeilao.Add(leilao);
 			return Ok(leilao);
         }
 
         [HttpPut]
         public IActionResult EndpointPutLeilao(Leilao leilao)
         {
-			_dao.Update(leilao);
+			_daoLeilao.Update(leilao);
             return Ok(leilao);
         }
 
         [HttpDelete("{id}")]
         public IActionResult EndpointDeleteLeilao(int id)
         {
-            var leilao = _dao.BuscarPorId(id);
+            var leilao = _daoLeilao.BuscarPorId(id);
             if (leilao == null)
             {
                 return NotFound();
             }
-			_dao.Remove(leilao);
+			_daoLeilao.Remove(leilao);
             return NoContent();
         }
 

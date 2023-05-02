@@ -4,21 +4,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Alura.LeilaoOnline.WebApp.Dados
+namespace Alura.LeilaoOnline.WebApp.Dados.EfCore
 {
-	public class LeilaoDao
+	public class LeilaoDao : ILeilaoDao
 	{
 		AppDbContext _context;
 
 		public LeilaoDao()
 		{
 			_context = new AppDbContext();
-		}
-
-		public IEnumerable<Categoria> BuscarCategorias()
-		{
-			return _context.Categorias.OrderBy(a => a.Id).ToList();
-		}
+		}		
 
 		public IEnumerable<Leilao> BuscarLeiloes()
 		{
