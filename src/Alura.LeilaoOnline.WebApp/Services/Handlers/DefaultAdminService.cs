@@ -20,7 +20,7 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 
 		public IEnumerable<Categoria> ConsultaCategorias()
 		{
-			return _categoriaDao.BuscarTodasCategorias();
+			return _categoriaDao.BuscarTodos();
 		}
 
 		public Leilao ConsultaLeilaoPorId(int id)
@@ -30,7 +30,7 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 
 		public IEnumerable<Leilao> ConsultaLeiloes()
 		{
-			return _leilaoDao.BuscarTodosLeiloes();
+			return _leilaoDao.BuscarTodos();
 		}
 
 		public void CadastraLeilao(Leilao leilao)
@@ -40,7 +40,7 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 
 		public void ModificaLeilao(Leilao leilao)
 		{
-			_leilaoDao.Update(leilao);
+			_leilaoDao.Edit(leilao);
 		}
 
 		public void RemoveLeilao(Leilao leilao)
@@ -55,7 +55,7 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 			{
 				leilao.Situacao = SituacaoLeilao.Finalizado;
 				leilao.Termino = DateTime.Now;
-				_leilaoDao.Update(leilao);
+				_leilaoDao.Edit(leilao);
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 			{
 				leilao.Situacao = SituacaoLeilao.Pregao;
 				leilao.Inicio = DateTime.Now;
-				_leilaoDao.Update(leilao);
+				_leilaoDao.Edit(leilao);
 			}
 		}
 	}

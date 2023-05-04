@@ -13,9 +13,10 @@ namespace Alura.LeilaoOnline.WebApp.Dados.EfCore
 		public LeilaoDao()
 		{
 			_context = new AppDbContext();
-		}		
+		}
+		
 
-		public IEnumerable<Leilao> BuscarTodosLeiloes()
+		public IEnumerable<Leilao> BuscarTodos()
 		{
 			return _context.Leiloes.Include(l => l.Categoria).ToList();
 		}
@@ -25,7 +26,7 @@ namespace Alura.LeilaoOnline.WebApp.Dados.EfCore
 			return _context.Leiloes.First(a => a.Id == id);
 		}
 
-		public void Update(Leilao leilao)
+		public void Edit(Leilao leilao)
 		{
 			_context.Leiloes.Update(leilao);
 			_context.SaveChanges();
