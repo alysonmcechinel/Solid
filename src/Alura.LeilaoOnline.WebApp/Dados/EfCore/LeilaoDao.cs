@@ -15,7 +15,7 @@ namespace Alura.LeilaoOnline.WebApp.Dados.EfCore
 			_context = new AppDbContext();
 		}		
 
-		public IEnumerable<Leilao> BuscarLeiloes()
+		public IEnumerable<Leilao> BuscarTodosLeiloes()
 		{
 			return _context.Leiloes.Include(l => l.Categoria).ToList();
 		}
@@ -24,16 +24,6 @@ namespace Alura.LeilaoOnline.WebApp.Dados.EfCore
 		{
 			return _context.Leiloes.First(a => a.Id == id);
 		}
-
-		public IEnumerable<Leilao> BuscarLeiloesTermo(string termo)
-		{
-			return _context.Leiloes.Include(l => l.Categoria)
-									.Where(l => string.IsNullOrWhiteSpace(termo) ||
-										l.Titulo.ToUpper().Contains(termo.ToUpper()) ||
-										l.Descricao.ToUpper().Contains(termo.ToUpper()) ||
-										l.Categoria.Descricao.ToUpper().Contains(termo.ToUpper())
-									);
-		}		
 
 		public void Update(Leilao leilao)
 		{
