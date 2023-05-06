@@ -1,4 +1,4 @@
-# Projeto para o curso "SOLID COM C#: PRINCÍPIOS DAPROGRAMAÇÃO ORIENTADA A OBJETOS"
+# Projeto para o curso "SOLID COM C#: PRINCÍPIOS DA PROGRAMAÇÃO ORIENTADA A OBJETOS" alura
 
 ### Nesse projeto, eu tive a oportunidade de aprender sobre os princípios do SOLID aplicados na programação em C#. Utilizei um projeto de leilões fornecido pelo curso como base para aplicar esses conceitos e entender como eles podem tornar o código mais robusto, escalável e fácil de manter.
 
