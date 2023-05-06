@@ -7,8 +7,8 @@ Significado da sigla SOLID:
 <ul>
     <li><b>S</b>RP > classes e métodos devem ter alta coesão (Responsabilidade Única)</li>
     <li><b>O</b>CP > mantenha seu projeto aberto a mudanças mas fechado a alterações (Aberto/Fechado Principle)</li>
-    <li><b>LSP</b>Liskov Substitution Principle > cumpra as promessas definidas nas abstrações (Princípio da Substituição de Liskov)</li>
-    <li><b>ISP</b>Interface Segregation Principle > preocupe-se com coesão e acoplamento em suas interfaces (Segregação das Interfaces)</li>
+    <li><b>LSP</b> > Liskov Substitution Principle > cumpra as promessas definidas nas abstrações (Princípio da Substituição de Liskov)</li>
+    <li><b>ISP</b> > Interface Segregation Principle > preocupe-se com coesão e acoplamento em suas interfaces (Segregação das Interfaces)</li>
     <li><b>D</b>IP > dependa de abstrações ao invés de classes concretas (Inversão das Dependências)</li>
 </ul>  
 
